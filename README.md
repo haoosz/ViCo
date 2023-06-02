@@ -2,7 +2,7 @@
 
 This is the official PyTorch codes for the paper:
 
-### [**ViCo: Detail-Preserving Visual Condition for Personalized Text-to-Image Generation**]()
+### [**ViCo: Detail-Preserving Visual Condition for Personalized Text-to-Image Generation**](https://arxiv.org/abs/2306.00971)
 
 ## ⏳ : To Do
 - [ ] Release training code

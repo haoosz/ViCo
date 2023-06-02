@@ -16,3 +16,4 @@ This is the official PyTorch codes for the paper:
 
 ## 🧩 Applications
 ![teaser](img/app.png)
+Find more examples in [paper](https://arxiv.org/abs/2306.00971)

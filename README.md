@@ -6,8 +6,8 @@ This is the official PyTorch codes for the paper:
 
 ## ⏳ : To Do
 - [ ] Release training code
-- [ ] Release inference code
-- [ ] Release pretrained models
-- [ ] Hugging Face demo
+- [ ] Release inference code (by Jun 5)
+- [ ] Release pretrained models (by Jun 5)
+- [ ] Hugging Face demo 
 
 ## 💻 Code is coming soon! 

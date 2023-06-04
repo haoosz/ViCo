@@ -53,7 +53,10 @@ python scripts/vico_txt2img.py \
 ```
 You can specify `load_step` (300,350,400) and personalize `prompt` (a prefix "a photo of" usually makes better results).
 
-## 📖 : Citation
+## 💻 Training
+### Coming soon!
+
+## 📖 Citation
 If you use this code in your research, please consider citing our paper:
 ```bibtex
 @inproceedings{Hao2023ViCo,

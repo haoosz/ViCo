@@ -68,5 +68,5 @@ If you use this code in your research, please consider citing our paper:
 }
 ```
 
-## Acknowledgements
+## 💐 Acknowledgements
 This code repository is based on the great work of [Textual Inversion](https://github.com/rinongal/textual_inversion). Thanks!

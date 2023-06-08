@@ -9,7 +9,7 @@
 ## ⏳ To Do
 - [x] Release inference code
 - [x] Release pretrained models
-- [ ] Release training code
+- [x] Release training code
 - [ ] Hugging Face demo 
 
 ## ⚙️ Set-up

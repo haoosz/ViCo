@@ -38,7 +38,7 @@ We provide the pretrained checkpoints at 300. 350, and 400 steps of 8 objects. Y
 Datasets are originally collected and provided by [Textual Inversion](https://github.com/rinongal/textual_inversion), [DreamBooth](https://github.com/google/dreambooth), and [Custom Diffsuion](https://github.com/adobe-research/custom-diffusion).
 
 ## 🚀 Inference
-Before run the inference command, please set:  
+Before running the inference command, please set:  
 - `REF_IMAGE_PATH`: Path of **the reference image**. It can be any image in the samples like `batman/1.jpg`.
 - `CHECKPOINT_PATH`: Path of **the checkpoint weight**. Its 
 subfolder should be similar to `checkpoints/*-399.pt`.
@@ -56,7 +56,20 @@ python scripts/vico_txt2img.py \
 You can specify `load_step` (300,350,400) and personalize `prompt` (a prefix "a photo of" usually makes better results).
 
 ## 💻 Training
-### Coming soon!
+Before running the training command, please set:
+- `RUN_NAME`: Your run name. Will be the name of the folder of logs.
+- `GPUS_USED`: GPUs you are using, e.g., "0,1,2,3". (4 RTX 3090 GPUs in my case)
+- `TRAIN_DATA_ROOT`: Path of your **training images**.
+- `INIT_WORD`: Initialize the word to represent your unique object, e.g., "dog" and "toy".
+```
+python main.py \
+--base configs/stable-diffusion/v1-finetune.yaml -t  \
+--actual_resume models/ldm/stable-diffusion-v1/sd-v1-4.ckpt  \
+-n RUN_NAME \
+--gpus  GPUS_USED \
+--data_root TRAIN_DATA_ROOT \
+--init_word INIT_WORD
+```
 
 ## 📖 Citation
 If you use this code in your research, please consider citing our paper:

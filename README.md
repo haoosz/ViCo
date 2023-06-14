@@ -22,7 +22,7 @@ conda activate vico
 ## ⏬ Download
 Download the [pretrained stable diffusion v1-4](https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4.ckpt) under `models/ldm/stable-diffusion-v1`.
 
-We provide the pretrained checkpoints at 300. 350, and 400 steps of 8 objects. You can download the [**sample images**](https://drive.google.com/drive/folders/1m8TCsY-C1tIOflHtWnFzTbw2C6dq67mC?usp=sharing) and their corresponding [**pretrained checkpoints**](https://drive.google.com/drive/folders/1I9BJpTLEGueK2hCaR2RKdQrlTrtF24lC?usp=drive_link). You can also download the data of any object:
+We provide the pretrained checkpoints at 300, 350, and 400 steps of 8 objects. You can download the [**sample images**](https://drive.google.com/drive/folders/1m8TCsY-C1tIOflHtWnFzTbw2C6dq67mC?usp=sharing) and their corresponding [**pretrained checkpoints**](https://drive.google.com/drive/folders/1I9BJpTLEGueK2hCaR2RKdQrlTrtF24lC?usp=drive_link). You can also download the data of any object:
 
 |  Object   | Sample images | Checkpoints |
 |  :----  | :----:  | :----:  |

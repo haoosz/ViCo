@@ -10,6 +10,7 @@
 - [x] Release inference code
 - [x] Release pretrained models
 - [x] Release training code
+- [ ] Quantitative evaluation code
 - [ ] Hugging Face demo 
 
 ## ⚙️ Set-up

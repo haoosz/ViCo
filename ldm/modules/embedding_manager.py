@@ -80,7 +80,7 @@ class EmbeddingManager(nn.Module):
 
             if initializer_words and idx < len(initializer_words):
                 init_word_token = get_token_for_string(initializer_words[idx])
-                
+
                 with torch.no_grad():
                     init_word_embedding = get_embedding_for_tkn(init_word_token.cpu())
 
@@ -105,7 +105,7 @@ class EmbeddingManager(nn.Module):
             self,
             tokenized_text,
             embedded_text,
-    ):  
+    ):
         b, n, device = *tokenized_text.shape, tokenized_text.device
         
         ################ 

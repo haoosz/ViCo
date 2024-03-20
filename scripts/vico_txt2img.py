@@ -119,7 +119,6 @@ def run_inference(model, opt, device):
 
                 x_samples_ddim = model.decode_first_stage(samples_ddim)
                 x_samples_ddim = torch.clamp((x_samples_ddim+1.0)/2.0, min=0.0, max=1.0)
-
                 for x_sample in x_samples_ddim:
                     x_sample = 255. * rearrange(x_sample.cpu().numpy(), 'c h w -> h w c')
                     Image.fromarray(x_sample.astype(np.uint8)).save(os.path.join(sample_path, f"{base_count:04}.jpg"))
@@ -326,7 +325,7 @@ if __name__ == "__main__":
                 encoder_posterior = model.encode_first_stage(image)
                 xr = model.get_first_stage_encoding(encoder_posterior).detach()
                 xr = xr.expand(opt.n_samples, -1, -1, -1)
-                
+                start = time.perf_counter()
                 samples_ddim, _ = sampler.sample(S=opt.ddim_steps,
                                                  conditioning=c,
                                                  image_cond=xr,
@@ -337,7 +336,9 @@ if __name__ == "__main__":
                                                  unconditional_guidance_scale=opt.scale,
                                                  unconditional_conditioning=uc,
                                                  eta=opt.ddim_eta)
-
+                end = time.perf_counter()
+                print("ViCo Test Time: {}".format(end-start))
+                
                 x_samples_ddim = model.decode_first_stage(samples_ddim)
                 x_samples_ddim = torch.clamp((x_samples_ddim+1.0)/2.0, min=0.0, max=1.0)
 

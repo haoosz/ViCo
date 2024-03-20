@@ -34,21 +34,51 @@ def init_(tensor):
     tensor.uniform_(-std, std)
     return tensor
 
+def otsu2(mask_in):
+    # normalize
+    mask_norm = (mask_in - mask_in.min(-1, keepdim=True)[0]) / \
+       (mask_in.max(-1, keepdim=True)[0] - mask_in.min(-1, keepdim=True)[0])
+    
+    N = 10
+    bs = mask_in.shape[0]
+    h = mask_in.shape[1]
+    mask = []
+    for i in range(bs):
+        mask_i = mask_norm[i]
+        low = [mask_i[mask_i < t/N] for t in range(1, N)]
+        high = [mask_i[mask_i >= t/N] for t in range(1, N)]
+        low_num = torch.tensor([i.shape[0]/h for i in low], device=mask_in.device)
+        high_num = torch.tensor([i.shape[0]/h for i in high], device=mask_in.device)
+        low_mean = torch.stack([i.mean() for i in low])
+        high_mean = torch.stack([i.mean() for i in high])
+        g = low_num*high_num*((low_mean-high_mean)**2)
+        index = torch.argmax(g)
+        t = index+1
+        threshold_t = t/N
+            
+        mask_i[mask_i < threshold_t] = 0
+        mask_i[mask_i > threshold_t] = 1
+        mask.append(mask_i)
+    mask_out = torch.stack(mask, dim=0)
+            
+    return mask_out
+
 def otsu(mask_in):
     # normalize
     mask_norm = (mask_in - mask_in.min(-1, keepdim=True)[0]) / \
        (mask_in.max(-1, keepdim=True)[0] - mask_in.min(-1, keepdim=True)[0])
     
+    N = 10
     bs = mask_in.shape[0]
     h = mask_in.shape[1]
     mask = []
     for i in range(bs):
         threshold_t = 0.
         max_g = 0.
-        for t in range(10):
+        for t in range(N):
             mask_i = mask_norm[i]
-            low = mask_i[mask_i < t*0.1]
-            high = mask_i[mask_i >= t*0.1]
+            low = mask_i[mask_i < t/N]
+            high = mask_i[mask_i >= t/N]
             low_num = low.shape[0]/h
             high_num = high.shape[0]/h
             low_mean = low.mean()
@@ -57,7 +87,7 @@ def otsu(mask_in):
             g = low_num*high_num*((low_mean-high_mean)**2)
             if g > max_g:
                 max_g = g
-                threshold_t = t*0.1
+                threshold_t = t/N
             
         mask_i[mask_i < threshold_t] = 0
         mask_i[mask_i > threshold_t] = 1

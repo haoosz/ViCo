@@ -217,8 +217,6 @@ class PersonalizedBase(Dataset):
         else:
             text = random.choice(imagenet_templates_small).format(placeholder_string)
         
-        print()
-        
         example["caption"] = text
         text_tokens = get_clip_token_for_string(self.tokenizer, text)
         ph_tokens = get_clip_token_for_string(self.tokenizer, [placeholder_string])

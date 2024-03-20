@@ -20,6 +20,7 @@ from pytorch_lightning.utilities import rank_zero_info
 
 from ldm.data.base import Txt2ImgIterableBaseDataset
 from ldm.util import instantiate_from_config
+import time
 
 def manual_seed_everything(seed: int):
     random.seed(seed)
@@ -815,7 +816,11 @@ if __name__ == "__main__":
         # run
         if opt.train:
             try:
+                start = time.perf_counter()
                 trainer.fit(model, data)
+                end = time.perf_counter()
+                elapsed = end - start
+                print("ViCo Training Time: {}".format(elapsed))
             except Exception:
                 melk()
                 raise

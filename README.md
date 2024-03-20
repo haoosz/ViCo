@@ -36,7 +36,7 @@ We provide the pretrained checkpoints at 300, 350, and 400 steps of 8 objects. Y
 |  teddybear  |  [image](https://drive.google.com/drive/folders/1lT8mOSgeh0P8DlfIh34qC2cvk2QaqSBo?usp=drive_link)  |  [ckpt](https://drive.google.com/drive/folders/1630qFd06T2Kz46pb-hs9OA99v3LD44IQ?usp=drive_link)   |
 |  wooden pot  |  [image](https://drive.google.com/drive/folders/1eVDMNAfAEroqMV8AiFlBqRGNcElmWw70?usp=drive_link)  |  [ckpt](https://drive.google.com/drive/folders/1kXQuzfSsAJ895gHZJDiFF-5BHoX49gOx?usp=drive_link)    |
 
-Datasets are originally collected and provided by [Textual Inversion](https://github.com/rinongal/textual_inversion), [DreamBooth](https://github.com/google/dreambooth), and [Custom Diffusion](https://github.com/adobe-research/custom-diffusion).
+Datasets are originally collected and provided by [Textual Inversion](https://github.com/rinongal/textual_inversion), [DreamBooth](https://github.com/google/dreambooth), and [Custom Diffsuion](https://github.com/adobe-research/custom-diffusion). You can find all [datasets](https://drive.google.com/drive/folders/1o3iTN5P6PX-DK3Ql_wSdH-swVvGYIG9I?usp=sharing) used for quantitaive comparison in our paper.
 
 ## 🚀 Inference
 Before running the inference command, please set:  
